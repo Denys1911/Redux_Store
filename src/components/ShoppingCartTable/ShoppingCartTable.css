@@ -1,0 +1,34 @@
+.shopping-cart-table {
+    margin-top: 50px;
+}
+
+.shopping-cart-table .total {
+    text-align: right;
+    font-size: 1.3rem;
+}
+
+.shopping-cart-table table {
+    text-align: center;
+}
+
+.shopping-cart-table .btn-group {
+    display: flex;
+    justify-content: space-between;
+    border: none;
+}
+
+.shopping-cart-table .btn-group button {
+    flex-basis: 40px;
+}
+
+.shopping-cart-table .btn-group button:not(:last-child) {
+    margin-right: 15px;
+}
+
+.shopping-cart-table table thead {
+    border: 2px solid #343a40;
+}
+
+.shopping-cart-table table tbody {
+    border: 2px solid #dfdfdf;
+}
