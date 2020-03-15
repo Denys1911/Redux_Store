@@ -1,0 +1,32 @@
+.shop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.shop-header a:hover {
+    text-decoration: none;
+}
+
+.logo {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 2rem;
+}
+
+.shopping-cart {
+    display: flex;
+    color: #787878;
+    transition: background-color .25s ease;
+}
+
+.shopping-cart:hover {
+    color: #000;
+}
+
+.shopping-cart i {
+    color: cadetblue;
+    margin-right: 20px;
+    font-size: 1.5rem;
+}
