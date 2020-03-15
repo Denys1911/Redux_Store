@@ -1,3 +1,3 @@
-import {BooksList} from "./BooksList";
+import BooksList from "./BooksList";
 
 export {BooksList};

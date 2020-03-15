@@ -1,9 +1,20 @@
-import React from "react";
+import React, {useContext, useEffect} from "react";
 import {BooksListItem} from "../BooksListItem";
+import {connect} from "react-redux";
+import {booksLoaded} from "../../actions";
+import {BookStoreServiceContext} from "../BookStoreServiceContext";
 
 import "./BooksList.css";
 
-export const BooksList = ({books}) => {
+const BooksList = ({books, booksLoaded}) => {
+    const bookStoreService = useContext(BookStoreServiceContext);
+
+    useEffect(() => {
+        const books = bookStoreService.getBooks();
+
+        booksLoaded(books);
+    }, []);
+
     return (
         <ul className="list-group books-list">
             {
@@ -16,3 +27,14 @@ export const BooksList = ({books}) => {
         </ul>
     )
 };
+
+const mapStateToProps = ({books}) => ({books});
+
+const mapDispatchToProps = {
+    booksLoaded
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(BooksList);
