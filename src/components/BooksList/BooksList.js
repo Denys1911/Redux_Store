@@ -16,10 +16,10 @@ const BooksList = ({books, booksLoaded}) => {
     }, []);
 
     return (
-        <ul className="list-group books-list">
+        <ul className="books-list">
             {
                 books.map(({id, ...bookInfo}) => (
-                    <li key={id} className="list-group-item">
+                    <li key={id}>
                         <BooksListItem book={bookInfo}/>
                     </li>
                 ))

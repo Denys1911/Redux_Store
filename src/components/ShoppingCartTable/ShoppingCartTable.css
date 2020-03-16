@@ -9,20 +9,25 @@
 
 .shopping-cart-table table {
     text-align: center;
+    width: 100%;
 }
 
-.shopping-cart-table .btn-group {
+.shopping-cart-table table td {
+   vertical-align: middle;
+}
+
+.shopping-cart-table .book-controls {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     border: none;
 }
 
-.shopping-cart-table .btn-group button {
-    flex-basis: 40px;
+.shopping-cart-table .book-controls button {
+    width: 55px;
 }
 
-.shopping-cart-table .btn-group button:not(:last-child) {
-    margin-right: 15px;
+.shopping-cart-table .book-controls button:not(:last-child) {
+    margin-right: 20px;
 }
 
 .shopping-cart-table table thead {

@@ -1,0 +1,40 @@
+.book-list-item.card {
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 15px 30px;
+    text-align: center;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+.book-list-item img {
+    width: 10rem;
+    height: 15rem;
+}
+
+.book-list-item .card-title {
+    color: #007bff;
+}
+
+.book-author {
+    font-size: 1.3rem;
+    font-style: italic;
+}
+
+.book-price {
+    display: block;
+    margin: 10px auto;
+    font-size: 1.2rem;
+}
+
+.book-details {
+    max-width: 35rem;
+}
+
+@media (min-width: 570px) {
+    .book-list-item.card {
+        flex-direction: row;
+    }
+}

@@ -6,7 +6,7 @@ export const ShoppingCartTable = () => {
     return (
         <div className="shopping-cart-table">
             <h2>Your Order</h2>
-            <table className="table table-striped">
+            <table className="table table-striped table-responsive-sm">
                 <thead className="thead-dark">
                     <tr>
                         <th scope="col">#</th>
@@ -23,7 +23,7 @@ export const ShoppingCartTable = () => {
                         <td>Site Reliability Engineering</td>
                         <td>2</td>
                         <td>$40</td>
-                        <td className="btn-group">
+                        <td className="book-controls">
                             <button className="btn btn-outline-danger btn-sm">
                                 <i className="fa fa-trash-o" />
                             </button>
