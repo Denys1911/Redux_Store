@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "112c5ae2b8b5761ac8e55c01ee4517ae",
+    "revision": "957ce9852fbe545dd3ac8a4f2f397d92",
     "url": "/Denys1911/Redux_Store/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Denys1911/Redux_Store/static/css/2.423d11ca.chunk.css"
   },
   {
-    "revision": "71d325f53863effa446c",
-    "url": "/Denys1911/Redux_Store/static/css/main.6475a06b.chunk.css"
+    "revision": "0ff742fe222f59bf79b3",
+    "url": "/Denys1911/Redux_Store/static/css/main.5a7aed7a.chunk.css"
   },
   {
     "revision": "72701bdb270f0082808d",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Denys1911/Redux_Store/static/js/2.8faeb3cb.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "71d325f53863effa446c",
-    "url": "/Denys1911/Redux_Store/static/js/main.0c0bb976.chunk.js"
+    "revision": "0ff742fe222f59bf79b3",
+    "url": "/Denys1911/Redux_Store/static/js/main.ab3def67.chunk.js"
   },
   {
     "revision": "c25f00c17347a41439ca",
