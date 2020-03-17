@@ -23,16 +23,18 @@ export const ShoppingCartTable = () => {
                         <td>Site Reliability Engineering</td>
                         <td>2</td>
                         <td>$40</td>
-                        <td className="book-controls">
-                            <button className="btn btn-outline-danger btn-sm">
-                                <i className="fa fa-trash-o" />
-                            </button>
-                            <button className="btn btn-outline-success btn-sm">
-                                <i className="fa fa-plus-circle" />
-                            </button>
-                            <button className="btn btn-outline-warning btn-sm">
-                                <i className="fa fa-minus-circle" />
-                            </button>
+                        <td>
+                            <div className="book-controls">
+                                <button className="btn btn-outline-danger btn-sm">
+                                    <i className="fa fa-trash-o" />
+                                </button>
+                                <button className="btn btn-outline-success btn-sm">
+                                    <i className="fa fa-plus-circle" />
+                                </button>
+                                <button className="btn btn-outline-warning btn-sm">
+                                    <i className="fa fa-minus-circle" />
+                                </button>
+                            </div>
                         </td>
                     </tr>
                 </tbody>

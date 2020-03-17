@@ -17,17 +17,16 @@
 }
 
 .shopping-cart-table .book-controls {
-    display: flex;
-    justify-content: center;
-    border: none;
+    width: 240px;
+    margin: 0 auto;
 }
 
 .shopping-cart-table .book-controls button {
     width: 55px;
 }
 
-.shopping-cart-table .book-controls button:not(:last-child) {
-    margin-right: 20px;
+.shopping-cart-table .book-controls button {
+    margin: 0 10px;
 }
 
 .shopping-cart-table table thead {
