@@ -1,25 +1,26 @@
 {
   "files": {
-    "main.css": "/Denys1911/Redux_Store/static/css/main.c3bc29b3.chunk.css",
-    "main.js": "/Denys1911/Redux_Store/static/js/main.9d39bfd5.chunk.js",
-    "main.js.map": "/Denys1911/Redux_Store/static/js/main.9d39bfd5.chunk.js.map",
+    "main.css": "/Denys1911/Redux_Store/static/css/main.6475a06b.chunk.css",
+    "main.js": "/Denys1911/Redux_Store/static/js/main.0c0bb976.chunk.js",
+    "main.js.map": "/Denys1911/Redux_Store/static/js/main.0c0bb976.chunk.js.map",
     "runtime-main.js": "/Denys1911/Redux_Store/static/js/runtime-main.30306510.js",
     "runtime-main.js.map": "/Denys1911/Redux_Store/static/js/runtime-main.30306510.js.map",
-    "static/css/2.de424728.chunk.css": "/Denys1911/Redux_Store/static/css/2.de424728.chunk.css",
-    "static/js/2.2aa7e220.chunk.js": "/Denys1911/Redux_Store/static/js/2.2aa7e220.chunk.js",
-    "static/js/2.2aa7e220.chunk.js.map": "/Denys1911/Redux_Store/static/js/2.2aa7e220.chunk.js.map",
+    "static/css/2.423d11ca.chunk.css": "/Denys1911/Redux_Store/static/css/2.423d11ca.chunk.css",
+    "static/js/2.8faeb3cb.chunk.js": "/Denys1911/Redux_Store/static/js/2.8faeb3cb.chunk.js",
+    "static/js/2.8faeb3cb.chunk.js.map": "/Denys1911/Redux_Store/static/js/2.8faeb3cb.chunk.js.map",
     "index.html": "/Denys1911/Redux_Store/index.html",
-    "precache-manifest.a20603823e16fe62ebf2b3194b661da7.js": "/Denys1911/Redux_Store/precache-manifest.a20603823e16fe62ebf2b3194b661da7.js",
+    "precache-manifest.78aeef59f395b03f7f98ad599d388a5f.js": "/Denys1911/Redux_Store/precache-manifest.78aeef59f395b03f7f98ad599d388a5f.js",
     "service-worker.js": "/Denys1911/Redux_Store/service-worker.js",
-    "static/css/2.de424728.chunk.css.map": "/Denys1911/Redux_Store/static/css/2.de424728.chunk.css.map",
-    "static/css/main.c3bc29b3.chunk.css.map": "/Denys1911/Redux_Store/static/css/main.c3bc29b3.chunk.css.map",
-    "static/js/2.2aa7e220.chunk.js.LICENSE.txt": "/Denys1911/Redux_Store/static/js/2.2aa7e220.chunk.js.LICENSE.txt"
+    "static/css/2.423d11ca.chunk.css.map": "/Denys1911/Redux_Store/static/css/2.423d11ca.chunk.css.map",
+    "static/css/main.6475a06b.chunk.css.map": "/Denys1911/Redux_Store/static/css/main.6475a06b.chunk.css.map",
+    "static/js/2.8faeb3cb.chunk.js.LICENSE.txt": "/Denys1911/Redux_Store/static/js/2.8faeb3cb.chunk.js.LICENSE.txt",
+    "static/media/font-awesome.min.css": "/Denys1911/Redux_Store/static/media/fontawesome-webfont.fee66e71.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.30306510.js",
-    "static/css/2.de424728.chunk.css",
-    "static/js/2.2aa7e220.chunk.js",
-    "static/css/main.c3bc29b3.chunk.css",
-    "static/js/main.9d39bfd5.chunk.js"
+    "static/css/2.423d11ca.chunk.css",
+    "static/js/2.8faeb3cb.chunk.js",
+    "static/css/main.6475a06b.chunk.css",
+    "static/js/main.0c0bb976.chunk.js"
   ]
 }
