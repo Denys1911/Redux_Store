@@ -3,19 +3,19 @@ import {BooksListItem} from "../BooksListItem";
 import {connect} from "react-redux";
 import {booksLoaded} from "../../actions";
 import {BookStoreServiceContext} from "../BookStoreServiceContext";
+import {Spinner} from "../Spinner";
 
 import "./BooksList.css";
 
-const BooksList = ({books, booksLoaded}) => {
+const BooksList = ({books, booksLoaded, loading}) => {
     const bookStoreService = useContext(BookStoreServiceContext);
 
     useEffect(() => {
-        const books = bookStoreService.getBooks();
-
-        booksLoaded(books);
+        bookStoreService.getBooks()
+            .then(books => booksLoaded(books));
     }, []);
 
-    return (
+    return loading ? <Spinner/> : (
         <ul className="books-list">
             {
                 books.map(({id, ...bookInfo}) => (
@@ -25,10 +25,10 @@ const BooksList = ({books, booksLoaded}) => {
                 ))
             }
         </ul>
-    )
+    );
 };
 
-const mapStateToProps = ({books}) => ({books});
+const mapStateToProps = ({books, loading}) => ({books, loading});
 
 const mapDispatchToProps = {
     booksLoaded
