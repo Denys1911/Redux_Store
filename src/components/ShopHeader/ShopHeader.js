@@ -1,15 +1,15 @@
 import React from "react";
+import {Link} from "react-router-dom";
+import {HOME, CART} from "../../constants/routes";
 
 import "./ShopHeader.css";
 
 export const ShopHeader = ({itemsAmount, totalPrice}) => (
     <header className="shop-header">
-        <a className="logo text-dark" href="/#">
-            ReStore
-        </a>
-        <a className="shopping-cart" href="/#">
+        <Link to={HOME} className="logo text-dark">ReStore</Link>
+        <Link to={CART} className="shopping-cart">
             <i className="cart-icon fa fa-shopping-cart"/>
             {itemsAmount} items (${totalPrice})
-        </a>
+        </Link>
     </header>
 );

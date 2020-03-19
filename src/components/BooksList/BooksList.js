@@ -1,21 +1,33 @@
 import React, {useContext, useEffect} from "react";
 import {BooksListItem} from "../BooksListItem";
 import {connect} from "react-redux";
-import {booksLoaded} from "../../actions";
+import {booksLoaded, booksRequested, booksError} from "../../actions";
 import {BookStoreServiceContext} from "../BookStoreServiceContext";
 import {Spinner} from "../Spinner";
+import {ErrorIndicator} from "../ErrorIndicator";
 
 import "./BooksList.css";
 
-const BooksList = ({books, booksLoaded, loading}) => {
+const BooksList = ({books, booksLoaded, booksRequested, booksError, loading, error}) => {
     const bookStoreService = useContext(BookStoreServiceContext);
 
     useEffect(() => {
+        booksRequested();
+
         bookStoreService.getBooks()
-            .then(books => booksLoaded(books));
+            .then(books => booksLoaded(books))
+            .catch(err => booksError(err));
     }, []);
 
-    return loading ? <Spinner/> : (
+    if (error) {
+        return <ErrorIndicator/>;
+    }
+
+    if (loading) {
+        return <Spinner/>;
+    }
+
+    return (
         <ul className="books-list">
             {
                 books.map(({id, ...bookInfo}) => (
@@ -28,10 +40,12 @@ const BooksList = ({books, booksLoaded, loading}) => {
     );
 };
 
-const mapStateToProps = ({books, loading}) => ({books, loading});
+const mapStateToProps = ({books, loading, error}) => ({books, loading, error});
 
 const mapDispatchToProps = {
-    booksLoaded
+    booksLoaded,
+    booksRequested,
+    booksError
 };
 
 export default connect(
