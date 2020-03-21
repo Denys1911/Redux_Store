@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import {withBookStoreService} from "../hoc";
-import {booksLoaded, booksRequested, booksError} from "../../actions";
+import {fetchBooks} from "../../actions";
 import {connect} from "react-redux";
 import {compose} from "../../utils";
 import {BooksListItem} from "../BooksListItem";
@@ -41,15 +41,9 @@ class BooksList extends PureComponent {
 
 const mapStateToProps = ({books, loading, error}) => ({books, loading, error});
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch, {bookStoreService}) => {
     return {
-        fetchBooks: () => {
-            dispatch(booksRequested());
-
-            ownProps.bookStoreService.getBooks()
-                .then(books => dispatch(booksLoaded(books)))
-                .catch(err => dispatch(booksError(err)));
-        }
+        fetchBooks: fetchBooks(dispatch, bookStoreService)
     }
 };
 
