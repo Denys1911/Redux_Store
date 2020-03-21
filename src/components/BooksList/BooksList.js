@@ -9,7 +9,19 @@ import {ErrorIndicator} from "../ErrorIndicator";
 
 import "./BooksList.css";
 
-class BooksList extends PureComponent {
+const BooksList = ({books}) => (
+    <ul className="books-list">
+        {
+            books.map(({id, ...bookInfo}) => (
+                <li key={id}>
+                    <BooksListItem book={bookInfo}/>
+                </li>
+            ))
+        }
+    </ul>
+);
+
+class BooksListContainer extends PureComponent {
     componentDidMount() {
         this.props.fetchBooks();
     }
@@ -26,15 +38,7 @@ class BooksList extends PureComponent {
         }
 
         return (
-            <ul className="books-list">
-                {
-                    books.map(({id, ...bookInfo}) => (
-                        <li key={id}>
-                            <BooksListItem book={bookInfo}/>
-                        </li>
-                    ))
-                }
-            </ul>
+            <BooksList books={books}/>
         );
     }
 }
@@ -50,4 +54,4 @@ const mapDispatchToProps = (dispatch, {bookStoreService}) => {
 export default compose(
     withBookStoreService(),
     connect(mapStateToProps, mapDispatchToProps)
-)(BooksList);
+)(BooksListContainer);
