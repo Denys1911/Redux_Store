@@ -9,7 +9,7 @@ const ShoppingCartTable = ({items, total, onIncrease, onDecrease, onDelete}) => 
 
         return (
             <tr key={id}>
-                <td>{index + 1}</td>
+                <th>{index + 1}</th>
                 <td>{bookName}</td>
                 <td>{amount}</td>
                 <td>${totalPrice}</td>
@@ -33,6 +33,14 @@ const ShoppingCartTable = ({items, total, onIncrease, onDecrease, onDelete}) => 
         )
     };
 
+    const cartFooterInfo = items.length ? {
+            align : 'right',
+            text: `Total: ${total}`
+        } : {
+            align : 'center',
+            text: 'No books in cart yet'
+        };
+
     return (
         <div className="shopping-cart-table">
             <h2>Your Order</h2>
@@ -49,11 +57,14 @@ const ShoppingCartTable = ({items, total, onIncrease, onDecrease, onDelete}) => 
                 <tbody>
                     {items.map(renderRow)}
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colSpan = '100%' align={cartFooterInfo.align}>
+                            {cartFooterInfo.text}
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
-
-            <div className="total">
-                Total: ${total}
-            </div>
         </div>
     );
 };

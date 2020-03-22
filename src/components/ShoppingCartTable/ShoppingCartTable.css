@@ -2,9 +2,9 @@
     margin-top: 50px;
 }
 
-.shopping-cart-table .total {
-    text-align: right;
+.shopping-cart-table tfoot td {
     font-size: 1.3rem;
+    padding: 12px 0;
 }
 
 .shopping-cart-table table {
