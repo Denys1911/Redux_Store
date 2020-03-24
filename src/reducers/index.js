@@ -6,8 +6,30 @@ const initialState = {
     orderTotalPrice: 30201
 };
 
-export const reducer = (state = initialState, action) => {
-    switch (action.type) {
+const createCartItem = (selectedBook, bookInCart = {}) => {
+    const {
+        id = selectedBook.id,
+        title = selectedBook.title,
+        amount = 0,
+        totalPrice = 0
+    } = bookInCart;
+
+    return {
+        id,
+        title,
+        amount: amount + 1,
+        totalPrice: totalPrice + selectedBook.price
+    }
+};
+
+const createCartItems = (selectedBookInCart, cartItems, newCartItem, selectedBookId) => {
+    return selectedBookInCart ?
+        cartItems.map(item => item.id === selectedBookId ? newCartItem : item) :
+        [...cartItems, newCartItem];
+};
+
+export const reducer = (state = initialState, {type, payload}) => {
+    switch (type) {
         case 'FETCH_BOOKS_REQUEST':
             return {
                 ...state,
@@ -18,7 +40,7 @@ export const reducer = (state = initialState, action) => {
         case 'FETCH_BOOKS_SUCCESS':
             return {
                 ...state,
-                books: action.payload,
+                books: payload,
                 loading: false,
                 error: null
             };
@@ -27,20 +49,17 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 books: [],
                 loading: false,
-                error: action.payload
+                error: payload
             };
         case 'ADD_BOOK_TO_CART':
-            const selectedBook = state.books.find(book => book.id === action.payload);
-            const newItem = {
-                id: selectedBook.id,
-                bookName: selectedBook.title,
-                amount: 1,
-                totalPrice: selectedBook.price
-            };
+            const selectedBook = state.books.find(book => book.id === payload);
+            const selectedBookInCart = state.cartItems.find(item => item.id === payload);
+            const newCartItem = createCartItem(selectedBook, selectedBookInCart);
+            const cartItems = createCartItems(selectedBookInCart, state.cartItems, newCartItem, payload);
 
             return {
                 ...state,
-                cartItems: [...state.cartItems, newItem]
+                cartItems
             };
         default:
             return state;
