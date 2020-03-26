@@ -21,6 +21,20 @@ export const addBookToCart = bookId => {
     }
 };
 
+export const decreaseBookAmountInCart = bookId => {
+    return {
+        type: 'REMOVE_BOOK_FROM_CART',
+        payload: bookId
+    }
+};
+
+export const deleteBookFromCart = bookId => {
+    return {
+        type: 'REMOVE_ALL_BOOKS_FROM_CART',
+        payload: bookId
+    }
+};
+
 export const fetchBooks = (dispatch, bookStoreService) => () => {
     dispatch(booksRequested());
 

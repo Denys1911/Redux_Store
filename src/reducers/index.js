@@ -6,7 +6,7 @@ const initialState = {
     orderTotalPrice: 30201
 };
 
-const createCartItem = (selectedBook, bookInCart = {}) => {
+const createCartItem = (selectedBook, bookInCart = {}, quantity) => {
     const {
         id = selectedBook.id,
         title = selectedBook.title,
@@ -17,15 +17,34 @@ const createCartItem = (selectedBook, bookInCart = {}) => {
     return {
         id,
         title,
-        amount: amount + 1,
-        totalPrice: totalPrice + selectedBook.price
+        amount: amount + quantity,
+        totalPrice: totalPrice + quantity * selectedBook.price
     }
 };
 
 const createCartItems = (selectedBookInCart, cartItems, newCartItem, selectedBookId) => {
+    if (!newCartItem.amount) {
+        return [
+            ...cartItems.filter(item => item.id !== selectedBookId)
+        ]
+    }
+
     return selectedBookInCart ?
         cartItems.map(item => item.id === selectedBookId ? newCartItem : item) :
         [...cartItems, newCartItem];
+};
+
+const updateOrder = (state, bookId, quantity) => {
+    const {books, cartItems} = state;
+    const selectedBook = books.find(book => book.id === bookId);
+    const selectedBookInCart = cartItems.find(item => item.id === bookId);
+    const newCartItem = createCartItem(selectedBook, selectedBookInCart, quantity);
+    const newCartItems = createCartItems(selectedBookInCart, cartItems, newCartItem, bookId);
+
+    return {
+        ...state,
+        cartItems: newCartItems
+    };
 };
 
 export const reducer = (state = initialState, {type, payload}) => {
@@ -52,15 +71,13 @@ export const reducer = (state = initialState, {type, payload}) => {
                 error: payload
             };
         case 'ADD_BOOK_TO_CART':
-            const selectedBook = state.books.find(book => book.id === payload);
+            return updateOrder(state, payload, 1);
+        case 'REMOVE_BOOK_FROM_CART':
+            return updateOrder(state, payload, -1);
+        case 'REMOVE_ALL_BOOKS_FROM_CART':
             const selectedBookInCart = state.cartItems.find(item => item.id === payload);
-            const newCartItem = createCartItem(selectedBook, selectedBookInCart);
-            const cartItems = createCartItems(selectedBookInCart, state.cartItems, newCartItem, payload);
 
-            return {
-                ...state,
-                cartItems
-            };
+            return updateOrder(state, payload, -selectedBookInCart.amount);
         default:
             return state;
     }
