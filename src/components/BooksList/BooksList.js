@@ -44,7 +44,7 @@ class BooksListContainer extends PureComponent {
     }
 }
 
-const mapStateToProps = ({books, loading, error}) => ({books, loading, error});
+const mapStateToProps = ({booksList: {books, loading, error}}) => ({books, loading, error});
 
 const mapDispatchToProps = (dispatch, {bookStoreService}) => {
     return {
