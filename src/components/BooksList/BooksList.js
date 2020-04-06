@@ -2,6 +2,7 @@ import React, {PureComponent} from "react";
 import {withBookStoreService} from "../hoc";
 import {fetchBooks, addBookToCart} from "../../actions";
 import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
 import {compose} from "../../utils";
 import {BooksListItem} from "../BooksListItem";
 import {Spinner} from "../Spinner";
@@ -47,10 +48,10 @@ class BooksListContainer extends PureComponent {
 const mapStateToProps = ({booksList: {books, loading, error}}) => ({books, loading, error});
 
 const mapDispatchToProps = (dispatch, {bookStoreService}) => {
-    return {
-        fetchBooks: fetchBooks(dispatch, bookStoreService),
-        onAddToCart: bookId => dispatch(addBookToCart(bookId))
-    }
+    return bindActionCreators({
+        fetchBooks: fetchBooks(bookStoreService),
+        onAddToCart: addBookToCart
+    }, dispatch);
 };
 
 export default compose(

@@ -35,7 +35,7 @@ export const removeAllBooksFromCart = bookId => {
     }
 };
 
-export const fetchBooks = (dispatch, bookStoreService) => () => {
+export const fetchBooks = bookStoreService => () => dispatch => {
     dispatch(booksRequested());
 
     bookStoreService.getBooks()
