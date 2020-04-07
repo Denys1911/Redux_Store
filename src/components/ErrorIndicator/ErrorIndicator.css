@@ -1,0 +1,10 @@
+.error-indicator {
+    margin: 30px auto;
+    text-align: center;
+    font-size: 1.5rem;
+    color: tomato;
+}
+
+.error-indicator i {
+    margin-right: 15px;
+}
