@@ -4,6 +4,6 @@ import "./Spinner.css";
 
 export const Spinner = () => (
     <div className="spinner">
-        Loading...
+        <div className="loader">Loading...</div>
     </div>
 );
