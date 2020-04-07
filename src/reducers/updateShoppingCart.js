@@ -26,16 +26,21 @@ const createCartItems = (selectedBookInCart, cartItems, newCartItem, selectedBoo
         [...cartItems, newCartItem];
 };
 
+const calculateOrderTotalPrice = cartItems => {
+    return cartItems.reduce((accumulator, currentItem) => accumulator + currentItem.totalPrice, 0)
+};
+
 const updateOrder = (state, bookId, quantity) => {
     const {booksList: {books}, shoppingCart: {cartItems}} = state;
     const selectedBook = books.find(book => book.id === bookId);
     const selectedBookInCart = cartItems.find(item => item.id === bookId);
     const newCartItem = createCartItem(selectedBook, selectedBookInCart, quantity);
     const newCartItems = createCartItems(selectedBookInCart, cartItems, newCartItem, bookId);
+    const orderTotalPrice = calculateOrderTotalPrice(newCartItems);
 
     return {
         cartItems: newCartItems,
-        orderTotalPrice: 0
+        orderTotalPrice
     };
 };
 
