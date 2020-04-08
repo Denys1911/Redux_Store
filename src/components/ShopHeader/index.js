@@ -1,3 +1,3 @@
-import {ShopHeader} from "./ShopHeader";
+import ShopHeader from "./ShopHeader";
 
 export {ShopHeader};

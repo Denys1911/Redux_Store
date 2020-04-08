@@ -26,7 +26,20 @@
 }
 
 .shopping-cart i {
+    position: relative;
     color: cadetblue;
-    margin-right: 20px;
+    margin-right: 35px;
     font-size: 1.5rem;
+}
+
+.cart-items-score {
+    position: absolute;
+    top: -15px;
+    left: 25px;
+    padding: 3px 6px;
+    text-align: center;
+    font-size: 12px;
+    color: white;
+    background-color: tomato;
+    border-radius: 5px;
 }

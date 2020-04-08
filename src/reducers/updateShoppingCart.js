@@ -40,7 +40,8 @@ const updateOrder = (state, bookId, quantity) => {
 
     return {
         cartItems: newCartItems,
-        orderTotalPrice
+        orderTotalPrice,
+        cartItemsAmount: newCartItems.length
     };
 };
 
@@ -48,7 +49,8 @@ export const updateShoppingCart = (state, {type, payload}) => {
     if (!state) {
         return {
             cartItems: [],
-            orderTotalPrice: 0
+            orderTotalPrice: 0,
+            cartItemsAmount: 0
         }
     }
 

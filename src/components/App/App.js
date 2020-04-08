@@ -7,7 +7,7 @@ import "./App.css";
 
 export const App = () => (
     <div className="app">
-        <ShopHeader itemsAmount={3} totalPrice={500}/>
+        <ShopHeader/>
         <main>
             <Switch>
                 <Route path="/" exact component={HomePage}/>
