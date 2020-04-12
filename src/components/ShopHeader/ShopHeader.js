@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import {HOME, CART} from "../../constants/routes";
 import {connect} from "react-redux";
+import PropTypes from "prop-types";
 
 import "./ShopHeader.css";
 
@@ -16,6 +17,11 @@ const ShopHeader = ({cartItemsAmount, orderTotalPrice}) => (
         </Link>
     </header>
 );
+
+ShopHeader.propTypes = {
+    cartItemsAmount: PropTypes.number,
+    orderTotalPrice: PropTypes.number
+};
 
 const mapStateToProps = ({shoppingCart: {orderTotalPrice, cartItemsAmount}}) => ({orderTotalPrice, cartItemsAmount});
 

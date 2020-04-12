@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import "./BooksListItem.css";
 
@@ -19,4 +20,14 @@ export const BooksListItem = ({book, onAddToCart}) => {
             </div>
         </div>
     )
+};
+
+BooksListItem.propTypes = {
+    book: PropTypes.exact({
+        title: PropTypes.string,
+        author: PropTypes.string,
+        price: PropTypes.number,
+        coverImage: PropTypes.string
+    }),
+    onAddToCart: PropTypes.func
 };

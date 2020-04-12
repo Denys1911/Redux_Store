@@ -1,4 +1,4 @@
-import React, {PureComponent} from "react";
+import React, {useEffect} from "react";
 import {withBookStoreService} from "../hoc";
 import {fetchBooks, addBookToCart} from "../../actions";
 import {connect} from "react-redux";
@@ -7,6 +7,7 @@ import {compose} from "../../utils";
 import {BooksListItem} from "../BooksListItem";
 import {Spinner} from "../Spinner";
 import {ErrorIndicator} from "../ErrorIndicator";
+import PropTypes from "prop-types";
 
 import "./BooksList.css";
 
@@ -23,27 +24,29 @@ const BooksList = ({books, onAddToCart}) => (
     </ul>
 );
 
-class BooksListContainer extends PureComponent {
-    componentDidMount() {
-        this.props.fetchBooks();
+const BooksListContainer = ({books, error, loading, onAddToCart, fetchBooks}) => {
+    useEffect(fetchBooks, []);
+
+    if (error) {
+        return <ErrorIndicator/>;
     }
 
-    render() {
-        const {books, error, loading, onAddToCart} = this.props;
-
-        if (error) {
-            return <ErrorIndicator/>;
-        }
-
-        if (loading) {
-            return <Spinner/>;
-        }
-
-        return (
-            <BooksList books={books} onAddToCart={onAddToCart}/>
-        );
+    if (loading) {
+        return <Spinner/>;
     }
-}
+
+    return (
+        <BooksList books={books} onAddToCart={onAddToCart}/>
+    );
+};
+
+BooksListContainer.propTypes = {
+    books: PropTypes.arrayOf(PropTypes.object).isRequired,
+    error: PropTypes.bool,
+    loading: PropTypes.bool,
+    fetchBooks: PropTypes.func.isRequired,
+    onAddToCart: PropTypes.func
+};
 
 const mapStateToProps = ({booksList: {books, loading, error}}) => ({books, loading, error});
 

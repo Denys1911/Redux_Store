@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {addBookToCart, removeBookFromCart, removeAllBooksFromCart} from "../../actions";
+import PropTypes from "prop-types";
 
 import "./ShoppingCartTable.css";
 
@@ -36,7 +37,7 @@ const ShoppingCartTable = ({items, total, onIncrease, onDecrease, onDelete}) => 
 
     const cartFooterInfo = items.length ? {
             align : 'right',
-            text: `Total: ${total}`
+            text: `Total: $${total}`
         } : {
             align : 'center',
             text: 'No books in cart yet'
@@ -68,6 +69,14 @@ const ShoppingCartTable = ({items, total, onIncrease, onDecrease, onDelete}) => 
             </table>
         </div>
     );
+};
+
+ShoppingCartTable.propTypes = {
+    items: PropTypes.arrayOf(PropTypes.object).isRequired,
+    total: PropTypes.number,
+    onIncrease: PropTypes.func,
+    onDecrease: PropTypes.func,
+    onDelete: PropTypes.func
 };
 
 const mapStateToProps = ({shoppingCart: {cartItems, orderTotalPrice}}) => {
